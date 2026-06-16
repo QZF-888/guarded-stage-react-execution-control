@@ -43,24 +43,27 @@ This repository intentionally does **not** include paper PDFs, LaTeX submission 
 
 ## Main Results
 
-The main full valid-unseen result uses Qwen3.5-9B through an API backend on 134 ALFWorld valid-unseen tasks with a 25-step execution budget.
+The full valid-unseen evaluation covers **two LLM backbones** on the same 134 ALFWorld tasks with a 25-step execution budget: **Llama-3.1-8B-Instruct** and **Qwen3.5-9B**.
 
-| Method | Tasks | Success | Success rate | Avg. steps | Notes |
-|---|---:|---:|---:|---:|---|
-| ReAct baseline | 134 | 35 | 26.12% | 20.44 | Standard ReAct |
-| Strong-prompt ReAct | 134 | 46 | 34.33% | 19.49 | Prompt-only strengthening |
-| Guarded-Stage ReAct | 134 | 110 | 82.09% | 11.80 | Wrong-object guard + stage controller |
+| Backbone | Method | Success | Success rate | Notes |
+|---|---|---:|---:|---|
+| Llama-3.1-8B | ReAct baseline | 35/134 | 26.1% | Standard ReAct |
+| Llama-3.1-8B | Strong Prompt ReAct | 46/134 | 34.3% | Prompt-only stage instructions |
+| Llama-3.1-8B | Guarded-Stage ReAct | 77/134 | 57.5% | Execution-time guard + stage controller |
+| Qwen3.5-9B | ReAct baseline | 100/134 | 74.6% | Standard ReAct |
+| Qwen3.5-9B | Strong Prompt ReAct | 108/134 | 80.6% | Prompt-only stage instructions |
+| Qwen3.5-9B | Guarded-Stage ReAct | 110/134 | 82.1% | Execution-time guard + stage controller |
 
-By task type, Guarded-Stage ReAct reaches:
+Guarded-Stage ReAct improves ReAct on both backbones: **+31.4 points** on Llama-3.1-8B and **+7.5 points** on Qwen3.5-9B. The largest mechanism-aligned gain appears on PickTwo tasks: Llama ReAct and Strong Prompt solve **0/17**, while Guarded-Stage ReAct solves **13/17**.
 
-| Task type | Tasks | Success | Success rate |
-|---|---:|---:|---:|
-| look_at_obj_in_light | 18 | 18 | 100.00% |
-| pick_and_place_simple | 24 | 20 | 83.33% |
-| pick_clean_then_place_in_recep | 31 | 26 | 83.87% |
-| pick_cool_then_place_in_recep | 21 | 17 | 80.95% |
-| pick_heat_then_place_in_recep | 23 | 18 | 78.26% |
-| pick_two_obj_and_place | 17 | 11 | 64.71% |
+Additional released result tables are in `results/`:
+
+- `main_summary.csv`: full-split method comparison for Llama and Qwen.
+- `task_type_full134.csv`: task-family success counts.
+- `paired_tests_full134.csv`: paired task-level comparisons and McNemar p-values.
+- `intervention_stats_full134.csv`: guard, stage-controller, and fallback intervention counts.
+- `picktwo_interventions_full134.csv`: PickTwo-specific intervention statistics.
+- `ablation_seed42_random50.csv`: seed42 random50 ablation summary.
 
 ## Repository Layout
 
