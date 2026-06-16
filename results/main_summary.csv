@@ -1,4 +1,7 @@
-method,tasks,success,success_rate,avg_steps,avg_llm_calls,avg_time_s,max_exec_steps,guard_count,controller_count,fallback_count
-ReAct baseline,134,35,0.2612,20.44,20.44,82.0,25,,,630
-Strong-prompt ReAct,134,46,0.3433,19.49,19.49,82.1,25,0,0,585
-Guarded-Stage ReAct,134,110,0.8209,11.8,11.8,24.0,25,151,64,151
+backbone,method,tasks,success,success_rate,avg_steps,avg_llm_calls,avg_time_s,max_exec_steps,guard_count,stage_count,fallback_count
+Llama-3.1-8B,ReAct baseline,134,35,0.2612,20.44,20.44,82.0,25,,,630
+Llama-3.1-8B,Strong Prompt ReAct,134,46,0.3433,19.49,19.49,82.1,25,0,0,585
+Llama-3.1-8B,Guarded-Stage ReAct,134,77,0.5746,16.79,16.79,72.7,25,450,60,458
+Qwen3.5-9B,ReAct baseline,134,100,0.7463,,,,25,,,
+Qwen3.5-9B,Strong Prompt ReAct,134,108,0.8060,,,,25,,,
+Qwen3.5-9B,Guarded-Stage ReAct,134,110,0.8209,11.8,11.8,24.0,25,151,64,151
