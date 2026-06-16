@@ -1,0 +1,15 @@
+{
+  "tag": "strong_prompt_react_valid_unseen134",
+  "n_tasks": 134,
+  "success_count": 46,
+  "success_rate": 0.3433,
+  "avg_score": 0.3433,
+  "avg_steps": 19.49,
+  "avg_llm_calls": 19.49,
+  "avg_time_s": 82.1,
+  "total_guard_count": 0,
+  "total_controller_count": 0,
+  "total_fallback_count": 585,
+  "max_exec_steps": 25,
+  "total_minutes": 188.3
+}

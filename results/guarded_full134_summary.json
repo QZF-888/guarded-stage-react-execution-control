@@ -1,0 +1,16 @@
+{
+  "tag": "qwen35_9b_guarded_stage_react_full134_aligned",
+  "seed": 42,
+  "n_tasks": 134,
+  "success_count": 110,
+  "success_rate": 0.8209,
+  "avg_score": 0.8209,
+  "avg_steps": 11.8,
+  "avg_llm_calls": 11.8,
+  "avg_time_s": 24.0,
+  "total_guard_count": 151,
+  "total_controller_count": 64,
+  "total_fallback_count": 151,
+  "max_exec_steps": 25,
+  "total_minutes": 59.2
+}

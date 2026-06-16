@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "guarded-stage-react"
+version = "0.1.0"
+description = "Execution-time action control for ReAct language agents in ALFWorld."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Guarded-Stage ReAct Authors" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,8 @@
+pytest>=8
+pyyaml
+requests
+
+# Optional for running full ALFWorld experiments:
+# alfworld
+# torch
+# transformers

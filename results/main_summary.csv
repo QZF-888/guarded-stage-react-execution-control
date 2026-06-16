@@ -1,0 +1,4 @@
+method,tasks,success,success_rate,avg_steps,avg_llm_calls,avg_time_s,max_exec_steps,guard_count,controller_count,fallback_count
+ReAct baseline,134,35,0.2612,20.44,20.44,82.0,25,,,630
+Strong-prompt ReAct,134,46,0.3433,19.49,19.49,82.1,25,0,0,585
+Guarded-Stage ReAct,134,110,0.8209,11.8,11.8,24.0,25,151,64,151

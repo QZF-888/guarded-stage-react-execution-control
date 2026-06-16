@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Guarded-Stage ReAct: Execution-Time Action Control for Reliable Language Agents"
+message: "If you use this repository, please cite the project or accompanying manuscript."
+type: software
+authors:
+  - family-names: "Anonymous"
+    given-names: "Authors"
+date-released: 2026-06-16
+license: MIT

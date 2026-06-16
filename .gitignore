@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Experiment outputs and large traces
+outputs/
+runs/
+*.log
+*_trace.json
+*_outputs.zip
+
+# Local data and secrets
+alfworld_data/
+.env
+.env.*
+
+# Editor files
+.DS_Store
+.idea/
+.vscode/

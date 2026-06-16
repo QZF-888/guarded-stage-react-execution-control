@@ -28,6 +28,8 @@ allow / block / redirect
 environment step
 ```
 
+![Method overview](figures/guarded_stage_react_flowchart.svg)
+
 ## What This Repository Contains
 
 - A reusable Python implementation of the action guard and stage controller.
@@ -49,6 +51,17 @@ The main full valid-unseen result uses Qwen3.5-9B through an API backend on 134 
 | Strong-prompt ReAct | 134 | 46 | 34.33% | 19.49 | Prompt-only strengthening |
 | Guarded-Stage ReAct | 134 | 110 | 82.09% | 11.80 | Wrong-object guard + stage controller |
 
+By task type, Guarded-Stage ReAct reaches:
+
+| Task type | Tasks | Success | Success rate |
+|---|---:|---:|---:|
+| look_at_obj_in_light | 18 | 18 | 100.00% |
+| pick_and_place_simple | 24 | 20 | 83.33% |
+| pick_clean_then_place_in_recep | 31 | 26 | 83.87% |
+| pick_cool_then_place_in_recep | 21 | 17 | 80.95% |
+| pick_heat_then_place_in_recep | 23 | 18 | 78.26% |
+| pick_two_obj_and_place | 17 | 11 | 64.71% |
+
 ## Repository Layout
 
 ```text
@@ -63,7 +76,50 @@ tests/                     Unit tests for the controller logic
 
 ## Quick Start
 
+Install the lightweight package:
+
 ```bash
 pip install -e ".[dev]"
+```
+
+Run unit tests:
+
+```bash
 pytest -q
+```
+
+Use the controller in another ALFWorld runner:
+
+```python
+from guarded_stage_react import GuardedStageController
+
+controller = GuardedStageController(goal_text)
+safe_action, reason = controller.control(
+    proposed_action=llm_action,
+    admissible_actions=admissible_actions,
+    inventory=inventory,
+    observation=observation,
+    last_action=last_action,
+)
+```
+
+The returned `safe_action` can be executed in the environment. `reason` records whether the original action was allowed or redirected by a guard/controller rule.
+
+## Reproduction Notes
+
+- Environment: ALFWorld valid-unseen.
+- Main budget: 25 executable steps per task.
+- Main controller: wrong-object guard + PickTwo stage controller + fallback ranking.
+- The released summaries are compact artifacts. Large raw traces are not committed because they are multi-megabyte logs.
+
+## Citation
+
+If you use this repository, cite the project as:
+
+```bibtex
+@software{guarded_stage_react_2026,
+  title = {Guarded-Stage ReAct: Execution-Time Action Control for Reliable Language Agents},
+  year = {2026},
+  url = {https://github.com/QZF-888/guarded-stage-react-execution-control}
+}
 ```

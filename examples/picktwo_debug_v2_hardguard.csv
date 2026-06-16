@@ -1,0 +1,9 @@
+task_idx,goal,target_obj,target_dest,success,score,steps,n_llm_calls,time_s,placed_count,placed_items,banned_items
+0,Your task is to: find two cd and put them in safe.,cd,safe,False,0.0,25,25,86.9,1,cd 1,alarmclock 1 | laptop 1
+1,Your task is to: put two soapbar in garbagecan.,soapbar,garbagecan,True,1.0,24,24,78.7,2,soapbar 1 | soapbar 2,soapbottle 1
+2,Your task is to: find two soapbar and put them in cabinet.,soapbar,cabinet,True,1.0,19,19,68.3,2,soapbar 1 | soapbar 2,candle 1 | cloth 1
+3,Your task is to: find two soapbar and put them in cabinet.,soapbar,cabinet,False,0.0,25,25,84.4,0,,cloth 1
+4,Your task is to: put two peppershaker in drawer.,peppershaker,drawer,True,1.0,25,25,89.6,2,peppershaker 2 | peppershaker 3,fork 1
+5,Your task is to: put two cd in safe.,cd,safe,False,0.0,25,25,95.5,0,,laptop 1
+6,Your task is to: put two keychain in safe.,keychain,safe,False,0.0,25,25,93.3,0,,watch 2
+7,Your task is to: find two pillow and put them in sofa.,pillow,sofa,True,1.0,10,10,34.9,2,pillow 1 | pillow 2,
