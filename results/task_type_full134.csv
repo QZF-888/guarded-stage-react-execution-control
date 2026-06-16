@@ -1,0 +1,8 @@
+task_type,total,llama_react,llama_strong_prompt,llama_guarded,qwen_react,qwen_strong_prompt,qwen_guarded
+Desklamp,18,10,7,7,16,18,18
+PickPlace,24,5,9,11,20,18,20
+Clean,31,10,12,20,23,25,26
+Cool,21,4,6,9,18,18,17
+Heat,23,6,12,17,17,17,18
+PickTwo,17,0,0,13,6,12,11
+Overall,134,35,46,77,100,108,110
