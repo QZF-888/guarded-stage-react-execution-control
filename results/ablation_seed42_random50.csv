@@ -1,0 +1,7 @@
+method,seed42_success_rate
+ReAct v3 baseline,0.34
+V5 baseline-patch,0.36
+w/o wrong-object guard,0.34
+w/o PickTwo controller,0.42
+w/o PickTwo-specific prompt,0.50
+Guarded-Stage ReAct,0.50
