@@ -1,0 +1,7 @@
+backbone,comparison,both_success,both_fail,first_only,second_only,p_value
+Llama-3.1-8B,G vs R,27,49,50,8,1.57e-8
+Llama-3.1-8B,G vs SP,41,52,36,5,7.84e-7
+Llama-3.1-8B,SP vs R,24,77,22,11,0.080
+Qwen3.5-9B,G vs R,96,20,14,4,0.0309
+Qwen3.5-9B,SP vs R,95,21,13,5,0.096
+Qwen3.5-9B,G vs SP,104,20,6,4,0.754
