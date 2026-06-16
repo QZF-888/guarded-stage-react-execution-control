@@ -41,24 +41,27 @@ environment step
 
 ## 主要结果
 
-主结果使用 Qwen3.5-9B API 后端，在 ALFWorld valid-unseen 134 个任务上评测，最大执行步数为 25。
+full valid-unseen 主实验覆盖 **两个 LLM backbone**，在同一组 134 个 ALFWorld valid-unseen 任务上评测，最大执行步数为 25：**Llama-3.1-8B-Instruct** 和 **Qwen3.5-9B**。
 
-| 方法 | 任务数 | 成功数 | 成功率 | 平均步数 | 说明 |
-|---|---:|---:|---:|---:|---|
-| ReAct baseline | 134 | 35 | 26.12% | 20.44 | 标准 ReAct |
-| Strong-prompt ReAct | 134 | 46 | 34.33% | 19.49 | 只增强 prompt |
-| Guarded-Stage ReAct | 134 | 110 | 82.09% | 11.80 | wrong-object guard + stage controller |
+| Backbone | 方法 | 成功数 | 成功率 | 说明 |
+|---|---|---:|---:|---|
+| Llama-3.1-8B | ReAct baseline | 35/134 | 26.1% | 标准 ReAct |
+| Llama-3.1-8B | Strong Prompt ReAct | 46/134 | 34.3% | 只增强任务阶段 prompt |
+| Llama-3.1-8B | Guarded-Stage ReAct | 77/134 | 57.5% | 执行期 guard + stage controller |
+| Qwen3.5-9B | ReAct baseline | 100/134 | 74.6% | 标准 ReAct |
+| Qwen3.5-9B | Strong Prompt ReAct | 108/134 | 80.6% | 只增强任务阶段 prompt |
+| Qwen3.5-9B | Guarded-Stage ReAct | 110/134 | 82.1% | 执行期 guard + stage controller |
 
-按任务类型统计：
+Guarded-Stage ReAct 在两个 backbone 上都提升了 ReAct：Llama-3.1-8B 上提升 **31.4 个百分点**，Qwen3.5-9B 上提升 **7.5 个百分点**。最符合方法机制的提升来自 PickTwo 任务：Llama ReAct 和 Strong Prompt 都是 **0/17**，而 Guarded-Stage ReAct 达到 **13/17**。
 
-| 任务类型 | 任务数 | 成功数 | 成功率 |
-|---|---:|---:|---:|
-| look_at_obj_in_light | 18 | 18 | 100.00% |
-| pick_and_place_simple | 24 | 20 | 83.33% |
-| pick_clean_then_place_in_recep | 31 | 26 | 83.87% |
-| pick_cool_then_place_in_recep | 21 | 17 | 80.95% |
-| pick_heat_then_place_in_recep | 23 | 18 | 78.26% |
-| pick_two_obj_and_place | 17 | 11 | 64.71% |
+更多结果表放在 `results/`：
+
+- `main_summary.csv`：Llama 和 Qwen 的 full-split 主结果。
+- `task_type_full134.csv`：按任务类型统计成功数。
+- `paired_tests_full134.csv`：配对任务级比较和 McNemar p-value。
+- `intervention_stats_full134.csv`：guard、stage-controller、fallback 触发统计。
+- `picktwo_interventions_full134.csv`：PickTwo 专项统计。
+- `ablation_seed42_random50.csv`：seed42 random50 消融结果。
 
 ## 仓库结构
 
